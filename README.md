@@ -10,7 +10,7 @@ redux-form and react-bootstrap.
 #### Examples
 
 ##### FormField
-The FormField component is an bootstrap Input element together with an error
+The FormField component is a bootstrap Input element together with an error
 decorator to show the validation status from redux-form. You can use it as an direct
 replacement for html _input_ tags like follows:
 
