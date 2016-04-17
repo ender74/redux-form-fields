@@ -2,7 +2,7 @@
   "name": "redux-form-fields",
   "version": "0.0.1",
   "description": "some form fields to be used with redux-form",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "author": {
     "name": "Heiko Hüter",
     "email": "ender@ender74.de"
@@ -30,12 +30,13 @@
     "babelify": "~7.2.0",
     "gulp": "~3.9.1"
   },
-  "peerDependencies": {
-    "react": "~15.0.1",
-    "react-dom": "~15.0.1"
-  },
+  "peerDependencies": {},
   "dependencies": {
+    "babel-register": "^6.7.2",
+    "gulp-babel": "^6.1.2",
+    "react": "~15.0.1",
     "react-bootstrap": "~0.28.5",
+    "react-dom": "~15.0.1",
     "react-redux": "~4.4.5",
     "redux": "~3.4.0",
     "redux-form": "~5.0.1"
