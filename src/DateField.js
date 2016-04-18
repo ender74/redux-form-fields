@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { injectIntl } from 'react-intl'
 import moment from 'moment'
 import DatePicker from 'react-date-picker'
-import { Button, Glyphicon, Modal } from 'react-bootstrap'
+import { Button, Glyphicon, Modal, FormGroup, FormControl, HelpBlock, InputGroup, InputControl } from 'react-bootstrap'
 
 import FormField from './FormField'
 
@@ -64,9 +64,24 @@ class DateField extends Component {
             </Button>
         )
         const valueForPicker = date != null && date.isValid() ? date : moment()
+
+        const { error, touched } = this.props
+        const newProps = Object.assign({}, this.props)
+        if (!newProps.type)
+            newProps.type='text'
+        const hasError = touched && error
+        const bsStyle = hasError ? 'error' : 'success'
+        const addon = this.props.buttonAfter
+
         return (
             <div style= {styles.base}>
-                <FormField {...this.props} buttonAfter = { btnPickDate } />
+                <FormGroup validationState={ bsStyle }>
+                    <InputGroup style = {{ width: '100%' }}>
+                        <FormControl {...newProps} />
+                        <InputGroup.Button>{ btnPickDate }</InputGroup.Button>
+                    </InputGroup>
+                    { hasError && <HelpBlock>{ error }</HelpBlock> }
+                </FormGroup>
                 <PickDateModal
                     isOpen={ this.state.modalIsOpen }
                     onRequestClose={ this.closeModal }
@@ -108,7 +123,7 @@ ExportClass.format = (value) => {
     return formatLocalDate(parseISODate(value))
 }
 ExportClass.isValid = (value) => {
-    return typeof value == 'undefined' || parseLocalDate(value).isValid()
+    return typeof(value) == 'undefined' || parseLocalDate(value).isValid()
 }
 
 export default ExportClass

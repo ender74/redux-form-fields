@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Input } from 'react-bootstrap'
+import { InputGroup, FormGroup, FormControl, HelpBlock, Col } from 'react-bootstrap'
 import ErrorDecorator from './ErrorDecorator'
 
 class FormField extends Component {
@@ -10,10 +10,16 @@ class FormField extends Component {
             newProps.type='text'
         const hasError = touched && error
         const bsStyle = hasError ? 'error' : 'success'
+        const addon = this.props.buttonAfter
         return (
-            <ErrorDecorator error={ error } touched={ touched }>
-                <Input {...newProps} bsStyle={ bsStyle } hasFeedback={ touched } />
-            </ErrorDecorator>
+            <FormGroup validationState={ bsStyle }>
+                <InputGroup style = {{ width: '100%' }}>
+                    {this.props.addonBefore && <InputGroup.Addon>{ this.props.addonBefore }</InputGroup.Addon> }
+                    <FormControl {...newProps} />
+                </InputGroup>
+                <FormControl.Feedback />
+                { hasError && <HelpBlock>{ error }</HelpBlock> }
+            </FormGroup>
         )
     }
 }
