@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Input } from 'react-bootstrap'
 import ErrorDecorator from './ErrorDecorator'
 
-export default class FormField extends Component {
+class FormField extends Component {
     render() {
         const { error, touched } = this.props
         const newProps = Object.assign({}, this.props)
@@ -17,3 +17,5 @@ export default class FormField extends Component {
         )
     }
 }
+
+export default FormField

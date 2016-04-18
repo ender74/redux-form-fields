@@ -39,3 +39,9 @@ replacement for html _input_ tags like follows:
 
 If there is an error, the input field will be marked with an error decorator and the error text
 will be shown.
+
+##### DateField
+Hint: The API is probably going to change. I'm not really satisfied with the current version.
+
+FormField to input dates. To parse / format dates, moment is used. The correct locale must be set globally with
+moment.locale(locale). Renders a DatePicker to select the value.
