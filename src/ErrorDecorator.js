@@ -4,10 +4,12 @@ export default class ErrorDecorator extends Component {
     render() {
         const { children, error, touched } = this.props
         const showError = touched && error
-        return <div style={ styles.div }>
+        return (
+            <div style={ styles.div }>
                 { children }
                 <span style={ showError ? styles.error : styles.hidden }>{ error }</span>
             </div>
+        )
     }
 }
 
