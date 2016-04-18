@@ -57,7 +57,7 @@ class DateField extends Component {
     }
 
     render() {
-        const date = parseISODate(this.props.value)
+        const date = parseLocalDate(this.props.value)
         const btnPickDate = (
             <Button onClick={ this.openModal } tooltip='Datum auswählen'>
                 <Glyphicon glyph='calendar' />

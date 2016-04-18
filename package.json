@@ -1,6 +1,6 @@
 {
   "name": "redux-form-fields",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "some form fields to be used with redux-form",
   "main": "lib/index.js",
   "author": {
