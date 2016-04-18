@@ -7,7 +7,7 @@ export default class ErrorDecorator extends Component {
         return (
             <div style={ styles.div }>
                 { children }
-                <span style={ showError ? styles.error : styles.hidden }>{ error }</span>
+                { showError && <span style={ styles.error }>{ error }</span> }
             </div>
         )
     }
@@ -22,9 +22,6 @@ const styles = {
     error: {
         color: 'red',
         marginBottom: '10px'
-    },
-    hidden: {
-        display: 'none'
     }
 }
 
